@@ -1,0 +1,53 @@
+后端页面
+<form  method="post" action="/b">
+    <input type="text" name="name">
+    <input type="submit" value="提交">
+</form>
+<script>
+   /* $.ajax({
+        type: "POST",/!*请求发送数据的方法*!/
+        url: "/c",/!*请求服务器的位置*!/
+        contentType:"application/json; charset=utf-8",
+        data:'{"name":"John","location":"Boston"}',
+        success: function(msg){
+            alert( "提示信息: " + msg );
+        },
+        /!* 监听服务器出现的错误*!/
+        error:function(e){
+            alert("请求超时");
+        }
+    });*/
+
+   $.ajax({
+       type: "GET",
+       url: "js/a.js",
+       dataType: "script"
+   });
+    $.ajax({
+        type: "get",/*请求发送数据的方法*/
+        url: "/c",/*请求服务器的位置*/
+        dataType:"text",
+        ifModified:false,
+        data:'{"name":"John","location":"Boston"}',
+        success: function(msg){
+            alert( "提示信息: " + msg );
+        },
+        /* 监听服务器出现的错误*/
+        error:function(e){
+            alert("请求超时");
+        }
+    });
+
+   $.ajax({
+       type: "get",/*请求发送数据的方法*/
+       url: "/cc",/*请求服务器的位置*/
+       data:'{"name":"John","location":"Boston"}',
+       success: function(msg){
+           alert( "提示信息: " + msg );
+       },
+       /* 监听服务器出现的错误*/
+       error:function(e){
+           alert("请求超时");
+       }
+   });
+</script>

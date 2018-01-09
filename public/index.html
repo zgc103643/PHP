@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<!--<img src="img/logo.svg">
+我是首页<br>
+<img src="img/a.jpg">
+<a href="admin.html">进入后台管理</a>
+<script>
+    $.ajax({
+        type: "get",/*请求发送数据的方法*/
+        url: "/a",/*请求服务器的位置*/
+        success: function(msg){
+            console.log(msg);
+        },
+        /* 监听服务器出现的错误*/
+        error:function(e){
+            alert("请求超时");
+        }
+    });
+
+</script>-->
+<!--<style>
+    .box{
+        width:100px; height:100px;
+        background: saddlebrown;
+    }
+</style>
+<div class="box"></div>
+<input type="button" value="停止">
+<script>
+$(".box").animate({"margin-left":600},3000).animate({"margin-left":0},1000);
+ $("input").click(function(){
+     $(".box").stop(true,true)
+ });
+</script>-->
+
+<style>
+    div { margin:3px; width:40px; height:40px;
+        position:absolute; left:0px; top:30px;
+        background:green; display:none; }
+    div.newcolor { background:blue; }
+</style>
+
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+<div></div>
+
+<script>
+    $("#start").click(function () {
+        $("div").show("slow");
+        $("div").animate({left:'+=200'},5000);
+        $("div").queue(function () {
+            $(this).addClass("newcolor");
+            $(this).dequeue();
+        });
+        $("div").animate({left:'-=200'},1500);
+      /*  $("div").queue(function () {
+            $(this).removeClass("newcolor");
+            $(this).dequeue();
+        });
+        $("div").slideUp();*/
+    });
+
+
+    $("#stop").click(function () {
+        console.log($("div").clearQueue());
+       // $("div").stop();
+    });
+</script>
+
+</body>
+</html>
